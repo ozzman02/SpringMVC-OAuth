@@ -1,4 +1,4 @@
-package spring.io.web.controllers;
+package lab.spring.io.web.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +10,12 @@ public class CustomerController {
     @ResponseBody
     @RequestMapping("/")
     public String home() {
-        return "Welcome Home";
+        return "Welcome home";
     }
+
+    @RequestMapping("/welcome")
+    public String welcome() {
+        return "welcome";
+    }
+
 }
