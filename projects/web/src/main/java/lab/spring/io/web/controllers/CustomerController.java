@@ -3,7 +3,9 @@ package lab.spring.io.web.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,11 +18,17 @@ public class CustomerController {
         return "Welcome home";
     }
 
-    @RequestMapping("/welcome")
-    public ModelAndView welcome() {
+    @RequestMapping("/welcome/{userId}")
+    public ModelAndView welcome(@PathVariable(value = "userId") Integer id) {
         ModelAndView model = new ModelAndView("welcome");
-        model.addObject("name", "INAM");
+        if (id != null && id == 1) {
+            model.addObject("name", "INAM");
+        } else {
+            model.addObject("name", "Anonymous");
+        }
         return model;
     }
+
+
 
 }
