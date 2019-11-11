@@ -5,6 +5,19 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          id="WebApp_ID" version="3.0">
 
+    <!-- Register a Root Context-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Location of the root application context file.
+         If no value is specified by contextConfigLocation param Spring will
+         search in /WEB-INF by default -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/config/applicationContext.xml</param-value>
+    </context-param>
+
     <!-- Dispatcher servlet creates a separate Application Context containing
          beans, controllers, views, view resolvers, etc.
          This context is also called the web context or dispatcher servlet context.
