@@ -6,6 +6,9 @@
         </Console>
     </Appenders>
     <Loggers>
+        <Logger name="org.springframework.web" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
         <Logger name = "lab.spring" level = "trace" additivity = "false">
             <AppenderRef ref="Console"/>
         </Logger>

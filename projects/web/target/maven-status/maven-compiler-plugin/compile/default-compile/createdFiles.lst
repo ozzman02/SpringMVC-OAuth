@@ -1,1 +1,2 @@
-lab\spring\io\web\controllers\CustomerController.class
+lab\spring\io\customer\controllers\CustomerController.class
+lab\spring\io\admin\controllers\AdminController.class

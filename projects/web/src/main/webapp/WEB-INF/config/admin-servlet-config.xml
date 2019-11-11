@@ -9,11 +9,11 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package="lab.spring.io.customer.controllers"/>
+    <context:component-scan base-package="lab.spring.io.admin.controllers"/>
 
     <bean id = "viewResolver"
           class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value = "/WEB-INF/views/customer/"/>
+        <property name="prefix" value = "/WEB-INF/views/admin/"/>
         <property name="suffix" value = ".jsp"/>
     </bean>
 
