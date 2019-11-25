@@ -24,30 +24,29 @@ import lab.spring.io.config.RootContextConfig;
 @ContextConfiguration(classes = {CustomerWebContextConfig.class, RootContextConfig.class})
 @WebAppConfiguration
 public class CustomerControllerTest {
-	
-	@Autowired
-	private WebApplicationContext context;
-	
-	private MockMvc mockMvc; 
-	
-	@Before
-	public void setup() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-		
-	}
-	
-	@Test
-	public void testAppContext() throws UnsupportedEncodingException, Exception {
-		String expected = "Welcome home";
-		String actual = mockMvc.perform(MockMvcRequestBuilders.get("/")).andReturn().getResponse().getContentAsString();
-		assertEquals(expected,actual);
-	}
-	
-	@Test
-	public void testWelcomeURI() throws Exception{
-		mockMvc.perform(MockMvcRequestBuilders.get("/welcome/2"))
-													.andExpect(MockMvcResultMatchers.view().name("welcome"))
-													.andExpect(MockMvcResultMatchers.model().attribute("name", "INAM"));
-	}
+
+    @Autowired
+    private WebApplicationContext context;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setup() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+    }
+
+    @Test
+    public void testAppContext() throws Exception {
+        String expected = "Welcome home";
+        String actual = mockMvc.perform(MockMvcRequestBuilders.get("/")).andReturn().getResponse().getContentAsString();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testWelcomeURI() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/welcome/1"))
+                .andExpect(MockMvcResultMatchers.view().name("welcome"))
+                .andExpect(MockMvcResultMatchers.model().attribute("name", "INAM"));
+    }
 
 }
