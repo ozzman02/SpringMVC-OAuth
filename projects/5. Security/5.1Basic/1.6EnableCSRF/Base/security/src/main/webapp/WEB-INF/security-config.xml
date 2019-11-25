@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<http>
+		<intercept-url pattern="/" access="permitAll"/>
+		<intercept-url pattern="/login" access="permitAll"/>
+		<form-login login-page="/login"/>
+		<intercept-url pattern="/index.jsp" access="hasRole('USER')"/>
+		<intercept-url pattern="/*" access="denyAll"/>
+		<logout/>
+		<csrf disabled="true"/>
+	</http>
+	
+	<authentication-manager>
+		<authentication-provider>
+			<user-service>
+				<user name="INAM" password="{noop}123456" authorities="ROLE_USER,ROLE_ADMIN"/>
+				<user name="DAVID" password="{bcrypt}$2a$10$z59TK3XhcZOcyeevNbCrxusYtR6Vi4KvrRCZGAjZdyQX.8GE95NU6" authorities="ROLE_USER,ROLE_ADMIN"/>
+			</user-service>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>
