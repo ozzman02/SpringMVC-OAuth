@@ -15,7 +15,7 @@ public class DbConfig {
 		dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/Springlab?useSSL=false");
 		dataSource.setUsername("springlab");
-		dataSource.setPassword("password");
+		dataSource.setPassword("test");
 		return dataSource;
 	}
 
