@@ -58,7 +58,7 @@
   <properties>
   	<maven.compiler.source>9</maven.compiler.source>
   	<maven.compiler.target>9</maven.compiler.target>
-  	<spring.version>5.0.5.RELEASE</spring.version>
+  	<spring.version>5.3.18</spring.version>
   	<junit.version>4.12</junit.version>
   	<log4j2.version>2.10.0</log4j2.version>
   	<failOnMissingWebXml>false</failOnMissingWebXml>
